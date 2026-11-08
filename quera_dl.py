@@ -7,7 +7,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 
 import requests
 
@@ -145,7 +145,8 @@ def localize_images(md: str, images_dir: Path) -> str:
         if not url.startswith("http"):
             return url
         counter["n"] += 1
-        base = safe_name(url.split("?")[0].rsplit("/", 1)[-1]) or "img"
+        raw = unquote(url.split("?")[0].rsplit("/", 1)[-1])
+        base = safe_name(raw).replace(" ", "_") or "img"
         images_dir.mkdir(parents=True, exist_ok=True)
         name = f"{counter['n']:03d}_{base}"
         return f"images/{name}" if download(url, images_dir / name) else url

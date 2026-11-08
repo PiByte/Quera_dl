@@ -1,0 +1,20 @@
+# Secrets: never commit these
+cookies.txt
+*.env
+.env
+
+# Downloaded course content (copyrighted, and large)
+output/
+state.json
+videos.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store

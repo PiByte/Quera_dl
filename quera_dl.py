@@ -12,13 +12,17 @@ from urllib.parse import urlparse, unquote
 import requests
 
 BASE = "https://quera.org"
-COLLEGE_ID = 6092
-START_URL = f"{BASE}/college/{COLLEGE_ID}/chapter/19659/lesson/66001"
+
+# CONFIG THIS SECTION BASED ON YOUR COLLEGE =============================
+COLLEGE_ID = 1111
+START_URL = f"{BASE}/college/{COLLEGE_ID}/chapter/1111/lesson/11111"
 OUT = Path("output")  # downloaded content goes here (git-ignored)
 INCLUDE_EXERCISES = True   # also try to save PRO (exercise) problems
-RETRY_EMPTY = True         # re-request lessons that were empty before
+RETRY_EMPTY = False         # re-request lessons that were empty before
 BASE_DELAY = 3.0            # seconds between lesson requests (plus jitter)
 MAX_DELAY = 20.0
+# =======================================================================
+
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
